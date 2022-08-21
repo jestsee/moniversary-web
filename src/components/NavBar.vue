@@ -22,7 +22,7 @@ onMounted(() => {
   >
     <div
       :class="[
-        'flex justify-between w-[1240px] py-8',
+        'flex justify-between w-[1240px] py-8 transition-all duration-500',
         { 'py-4 transition-all duration-700': scrollPosition > 100 },
       ]"
     >
