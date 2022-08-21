@@ -13,10 +13,17 @@ const useWish = () => {
     axios.get(`${BASE_URL}wishes`).then((res) => {
       wishes.value = res.data.data
       // console.log(wishes.value)
-    })
+    }) // TODO error handler
   }
 
-  return { fetchWishes, wishes }
+  const addWish = async (wish: Wish) => {
+    loadingWish.value = true
+    axios.post(`${BASE_URL}wish`, null, { params: wish }).then((res) =>
+      console.log(res.data)
+    ) // TODO error handler
+  }
+
+return { fetchWishes, addWish, wishes }
 }
 
 export { useWish }

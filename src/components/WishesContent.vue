@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PlusSmIcon } from "@heroicons/vue/solid";
 import WishItem from "./WishItem.vue";
 import { useWish } from "../composables/@api/useWish";
 import { onMounted } from "vue";
+import AddWish from "./AddWish.vue";
 
 const { fetchWishes, wishes } = useWish();
 
@@ -11,18 +11,11 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="w-[1240px] mx-auto py-16 flex gap-x-6">
-    <div class="">
-      <div
-        class="bg-white min-w-[300px] max-h-[300px] aspect-square rounded-3xl flex justify-center items-center"
-      >
-        <button class="bg-black rounded-full h-fit motion-safe:animate-bounce">
-          <PlusSmIcon class="text-white h-28" />
-        </button>
-      </div>
-      <h2 class="font-bold text-2xl">let's drop your wish</h2>
+  <div class="w-[1240px] mx-auto py-20 flex gap-x-6">
+    <div class="sticky top-24 self-start">
+      <AddWish/>
     </div>
-    <div class="columns-2 gap-6">
+    <div class="columns-3 gap-6">
       <template v-for="wish in wishes">
         <WishItem :wish="wish" class="mb-6 break-inside-avoid" />
       </template>

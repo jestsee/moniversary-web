@@ -26,7 +26,7 @@ onMounted(() => {
         { 'py-4 transition-all duration-700': scrollPosition > 100 },
       ]"
     >
-      <div class="font-extrabold text-3xl">Hbd y.</div>
+      <div class="font-extrabold text-3xl">Cie tua.</div>
       <ul class="flex gap-x-[6.5rem] items-center">
         <li
           class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
