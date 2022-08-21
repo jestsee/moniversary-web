@@ -8,8 +8,3 @@ export interface WishResponse {
   message: string
   data: Wish
 }
-
-export interface Err {
-  state: boolean
-  message: string
-}

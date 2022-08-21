@@ -18,12 +18,12 @@ const useWish = () => {
 
   const addWish = async (wish: Wish) => {
     loadingWish.value = true
-    axios.post(`${BASE_URL}wish`, null, { params: wish }).then((res) =>
+    axios.post(`${BASE_URL}wish`, wish).then((res) =>
       console.log(res.data)
     ) // TODO error handler
   }
 
-return { fetchWishes, addWish, wishes }
+  return { fetchWishes, addWish, wishes, loadingWish }
 }
 
 export { useWish }
