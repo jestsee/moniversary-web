@@ -4,8 +4,8 @@ import WishesView from "./WishesView.vue";
 </script>
 
 <template>
-  <div class="bg-white h-[100vh] min-h-[720px] max-h-[750px]">
+  <div id="header" class="bg-white h-[100vh] min-h-[720px] max-h-[750px]">
     <Header />
   </div>
-  <div class="bg-gray-100"><WishesView /></div>
+  <div id="wishes" class="bg-gray-100"><WishesView /></div>
 </template>

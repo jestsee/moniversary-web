@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-
+import { useScroll } from "../composables/useScroll";
+const { scrollTo } = useScroll();
 const scrollPosition = ref(0);
 const updateScroll = () => {
   scrollPosition.value = window.scrollY;
@@ -29,11 +30,13 @@ onMounted(() => {
       <div class="font-extrabold text-3xl">Cie tua.</div>
       <ul class="flex gap-x-[6.5rem] items-center">
         <li
+          @click="scrollTo('header')"
           class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
         >
           Home
         </li>
         <li
+          @click="scrollTo('wishes')"
           class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
         >
           Wishes
