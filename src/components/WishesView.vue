@@ -22,11 +22,11 @@ const refreshWishes = () => {
   >
     <p>Loading...</p>
   </div>
-  <div v-else class="w-[1240px] mx-auto py-20 flex gap-x-6">
-    <div class="sticky top-24 self-start">
+  <div v-else class="w-full xl:w-[1240px] mx-auto py-20 flex gap-x-6">
+    <div class="sticky top-24 self-start hidden lg:block">
       <AddWish :reload="refreshWishes"/>
     </div>
-    <div class="columns-3 gap-6">
+    <div class="columns-1 md:columns-3 gap-6">
       <WishesContent :items="wishes" :loading="loadingWish" />
     </div>
   </div>
