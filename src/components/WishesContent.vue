@@ -1,24 +1,19 @@
 <script setup lang="ts">
 import WishItem from "./WishItem.vue";
-import { useWish } from "../composables/@api/useWish";
-import { onMounted } from "vue";
 import AddWish from "./AddWish.vue";
+import Loading from "./Loading.vue";
+import { Wish } from "../composables/types/wish";
+import { watch } from "vue";
+import { useWish } from "../composables/@api/useWish";
 
-const { fetchWishes, wishes } = useWish();
-
-onMounted(() => {
-  fetchWishes();
-});
+interface Props {
+  items: Wish[];
+  loading: boolean;
+}
+const props = withDefaults(defineProps<Props>(), {});
 </script>
 <template>
-  <div class="w-[1240px] mx-auto py-20 flex gap-x-6">
-    <div class="sticky top-24 self-start">
-      <AddWish/>
-    </div>
-    <div class="columns-3 gap-6">
-      <template v-for="wish in wishes">
-        <WishItem :wish="wish" class="mb-6 break-inside-avoid" />
-      </template>
-    </div>
-  </div>
+  <template v-for="wish in items">
+    <WishItem :wish="wish" class="mb-6 break-inside-avoid" />
+  </template>
 </template>

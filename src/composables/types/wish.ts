@@ -5,6 +5,12 @@ export interface Wish {
 }
 
 export interface WishResponse {
+  state: string
   message: string
   data: Wish
+}
+
+export interface AddWishResponse {
+  state: string
+  message: string
 }

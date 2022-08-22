@@ -6,6 +6,7 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
+import Loading from "./Loading.vue";
 
 interface Props {
   isOpen: boolean;
@@ -13,8 +14,9 @@ interface Props {
   closeModal: CallableFunction;
   title?: string;
   submit: CallableFunction;
+  loading?: boolean;
 }
-withDefaults(defineProps<Props>(), { title: "test" });
+withDefaults(defineProps<Props>(), { title: "test", loading: false });
 </script>
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
@@ -55,7 +57,7 @@ withDefaults(defineProps<Props>(), { title: "test" });
               </div>
 
               <div class="mt-4 flex justify-end gap-x-3">
-                <button
+                <button v-if="!loading"
                   type="button"
                   class="rounded-xl border-2 border-black bg-white text-black px-5 py-2 text-sm font-medium"
                   @click="() => closeModal()"
@@ -63,10 +65,17 @@ withDefaults(defineProps<Props>(), { title: "test" });
                   Cancel
                 </button>
                 <button
+                  :disabled="loading"
                   type="submit"
-                  class="rounded-xl border bg-black text-white px-5 py-2 text-sm font-medium"
+                  :class="[
+                    'flex items-center gap-x-1 rounded-xl border bg-black text-white px-5 py-2 text-sm font-medium',
+                    { 'cursor-not-allowed bg-zinc-300': loading },
+                  ]"
                   @click="() => submit()"
                 >
+                  <span v-if="loading"
+                    ><Loading class="animate-spin h-4"
+                  /></span>
                   Submit
                 </button>
               </div>

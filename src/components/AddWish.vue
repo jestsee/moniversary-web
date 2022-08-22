@@ -1,9 +1,3 @@
-<script lang="ts">
-export interface Err {
-  state: boolean;
-  message: string;
-}
-</script>
 <script setup lang="ts">
 import { PlusSmIcon } from "@heroicons/vue/solid";
 import { useModal } from "../composables/useModal";
@@ -15,6 +9,11 @@ import { useWish } from "../composables/@api/useWish";
 
 const { isOpen, openModal, closeModal } = useModal();
 const { addWish, loadingWish } = useWish();
+
+interface Props {
+  reload: CallableFunction;
+}
+const props = withDefaults(defineProps<Props>(), {});
 
 const initData = {
   title: "",
@@ -51,31 +50,34 @@ const errorCheck = (
   }
 };
 
-const validate = ():boolean => {
-  let canSubmit = true
-  if (data.value.title === '') {
+const validate = (): boolean => {
+  let canSubmit = true;
+  if (data.value.title === "") {
     errTitle.value = "jangan kosong dong weh";
     canSubmit = false;
   }
-  if (data.value.from === '') {
+  if (data.value.from === "") {
     errFrom.value = "jangan kosong dong weh";
     canSubmit = false;
   }
-  if (data.value.wish === '') {
+  if (data.value.wish === "") {
     errWish.value = "jangan kosong dong weh";
     canSubmit = false;
   }
-  return canSubmit
-}
+  return canSubmit;
+};
 
 const submit = async () => {
   console.log(data.value);
   if (errTitle.value || errFrom.value || errWish.value) return;
 
   if (validate()) {
-    console.log('halal untuk disubmit');
-    await addWish(data.value)
-    closeModal()
+    console.log("halal untuk disubmit");
+    const resp = await addWish(data.value);
+    if (resp.state === "SUCCESS") {
+      closeModal();
+      props.reload();
+    }
   }
 };
 
@@ -105,7 +107,7 @@ watch(
       class="bg-white min-w-[250px] max-h-[250px] aspect-square rounded-3xl flex justify-center items-center hover:scale-105 group cursor-pointer shadow-[0_35px_60px_-15px_rgba(0,0,0,0.06)]"
     >
       <button
-        @click="handleOpen"
+        @click="openModal"
         class="bg-black rounded-full h-fit group-hover:motion-safe:animate-bounce"
       >
         <PlusSmIcon class="text-white h-20" />
@@ -125,6 +127,7 @@ watch(
     :open-modal="handleOpen"
     :close-modal="handleClose"
     :submit="submit"
+    :loading="loadingWish"
   >
     <form @submit="" class="grid grid-cols-1 gap-y-4">
       <Input
