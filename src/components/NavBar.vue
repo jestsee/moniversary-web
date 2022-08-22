@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useScroll } from "../composables/useScroll";
-const { scrollTo } = useScroll();
-const scrollPosition = ref(0);
-const updateScroll = () => {
-  scrollPosition.value = window.scrollY;
-};
+const { scrollTo, updateScroll, scrollPosition } = useScroll();
 
 onMounted(() => {
   window.addEventListener("scroll", updateScroll);
@@ -27,7 +23,7 @@ onMounted(() => {
         { 'py-4 transition-all duration-700': scrollPosition > 100 },
       ]"
     >
-      <div class="font-extrabold text-3xl">Cie tua.</div>
+      <div class="font-extrabold text-3xl cursor-pointer">Cie tua.</div>
       <ul class="flex gap-x-[6.5rem] items-center">
         <li
           @click="scrollTo('header')"
