@@ -2,8 +2,8 @@ import { ref, watch } from 'vue'
 import axios from 'axios'
 import { AddWishResponse, Wish, WishResponse } from '../types/wish'
 
-// const BASE_URL = 'https://moniversary-server.herokuapp.com/'
-const BASE_URL = 'http://localhost:3000/'
+const BASE_URL = 'https://moniversary-server.herokuapp.com/'
+// const BASE_URL = 'http://localhost:3000/'
 const useWish = () => {
   const wishes = ref<Wish[]>([])
   const loadingWish = ref(false)
