@@ -4,6 +4,7 @@ import { useWish } from "../composables/@api/useWish";
 import { watch } from "vue";
 import AddWishContainer from "./AddWishContainer.vue";
 import AddWish from "./AddWish.vue";
+import Loading from "./Loading.vue";
 
 const { fetchWishes, wishes, loadingWish, reload } = useWish();
 fetchWishes();
@@ -21,7 +22,7 @@ const refreshWishes = () => {
     v-if="loadingWish"
     class="flex h-[100vh] max-h-[750px] min-h-[720px] flex-col items-center justify-center"
   >
-    <p>Loading...</p>
+    <Loading class="animate-spin h-12"/>
   </div>
   <div v-else class="mx-auto flex w-full gap-x-6 py-10 xl:w-[1240px]">
     <div class="sticky top-24 hidden self-start lg:block">

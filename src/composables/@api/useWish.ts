@@ -28,7 +28,6 @@ const useWish = () => {
 
     const resp = await axios.post(`${BASE_URL}wish`, wish)
     // TODO error handler
-    console.log(resp.data)
     loadingWish.value = false
     return resp.data as AddWishResponse
   }

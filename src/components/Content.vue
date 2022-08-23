@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Header from "./Header.vue";
 import WishesView from "./WishesView.vue";
+import Footer from "./Footer.vue";
 </script>
 
 <template>
-  <div id="header" class="mx-10 flex h-[100vh] bg-white pt-32 mr-16 lg:block">
+  <div id="header" class="mx-10 mr-16 flex h-[100vh] bg-white pt-32 lg:block">
     <Header />
   </div>
   <div id="wishes" class="bg-gray-100 px-10 pt-16 lg:pt-20"><WishesView /></div>
+  <div id="footer" class="bg-black px-10 text-white"><Footer /></div>
 </template>

@@ -36,7 +36,8 @@ onMounted(() => {
       </div>
       <ul
         :class="[
-          'absolute -z-20 flex w-full flex-col items-center gap-x-[6.5rem] gap-y-2 bg-white pb-8 md:relative md:top-0 md:z-0 md:w-fit md:flex-row md:bg-transparent md:pb-0',
+          'absolute -z-10 flex w-full flex-col items-center gap-x-[6.5rem] gap-y-2 pb-[2.05rem] md:relative md:top-0 md:z-0 md:w-fit md:flex-row md:bg-transparent md:pb-0',
+          scrollPosition > 100 ? 'bg-black' : 'bg-white',
           menuClicked
             ? 'top-[4rem] pb-4 pt-2 transition-all duration-500 md:duration-150'
             : '-top-[150px] transition-all duration-500 md:duration-150',
@@ -56,6 +57,7 @@ onMounted(() => {
           Wishes
         </li>
         <li
+          @click="scrollTo('footer')"
           class="cursor-pointer text-lg font-semibold underline-offset-4 hover:underline"
         >
           Outro

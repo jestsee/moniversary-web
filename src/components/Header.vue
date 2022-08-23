@@ -18,16 +18,14 @@ const { scrollTo } = useScroll();
         Happy Moniversary
       </h1>
       <p class="font-semibold">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-        dignissimos nesciunt, magnam illum deserunt eaque expedita saepe
-        laudantium repellat culpa, tempore alias omnis adipisci in, quia maiores
-        nulla et voluptate.
+        Disclaimer dulu kalo ini tampilannya lebih lengkap kalo buka di laptop. Pake handphone ga dimunculin gambarnya soalnya ga muat.
+        Bingung mau nulis apa, kata ade gw tulis aja cie tua cie tua cie tua cie tua cie tua cie tua cie tua. Akhirnya ya udah legal beli miras gosah minjem KTP meimei.
       </p>
       <button
         @click="scrollTo('wishes')"
         class="max-w-fit rounded-full bg-black py-3 px-6 font-semibold text-white underline-offset-4 hover:scale-110 hover:underline"
       >
-        Get Started
+        Yuk cek 👇
       </button>
     </div>
   </div>

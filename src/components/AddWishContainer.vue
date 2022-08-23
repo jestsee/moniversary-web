@@ -13,11 +13,11 @@ withDefaults(defineProps<Props>(), {});
       <AddWish :reload="reload" />
     </div>
     <h2 class="mt-4 text-[2.5rem] font-extrabold leading-10">
-      a little suggestion
+      A little suggestion
     </h2>
     <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo nam possimus
-      sit animi obcaecati facilis, earum doloribus ipsum.
+      Tulis apa aja bole, mau dihujat juga silahkan. Katanya dia senang dihujat.
+      Tapi jangan SARA ya. Ati-ati muncul warn warna merah.
     </p>
   </div>
 </template>
