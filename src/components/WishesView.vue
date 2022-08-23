@@ -27,7 +27,7 @@ const refreshWishes = () => {
     <div class="sticky top-24 hidden self-start lg:block">
       <AddWishContainer :reload="refreshWishes" />
     </div>
-    <div class="columns-1 gap-6 md:columns-3">
+    <div class="columns-1 gap-6 sm:columns-2 xl:columns-3">
       <WishesContent :items="wishes" :loading="loadingWish" />
     </div>
   </div>

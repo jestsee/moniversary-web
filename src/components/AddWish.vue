@@ -105,7 +105,7 @@ watch(
     @click="openModal"
     class="h-fit rounded-full bg-black shadow-lg group-hover:motion-safe:animate-bounce lg:shadow-none"
   >
-    <PlusSmIcon class="h-20 text-white" />
+    <PlusSmIcon class="h-16 text-white" />
   </button>
   <Modal
     title="Drop your wish"
@@ -125,7 +125,7 @@ watch(
       <Input
         v-model="data.from"
         label="from"
-        placeholder="dari siapa ni? gosah anon2 ini bukan askfm"
+        placeholder="dari siapa ni?"
         :error="errFrom"
       />
       <Input

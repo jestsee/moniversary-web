@@ -7,7 +7,7 @@ const { scrollTo } = useScroll();
     class="mx-auto flex h-full flex-col items-center justify-center md:flex-row xl:w-[1240px]"
   >
     <img
-      class="-ml-12 -mr-8 hidden md:block md:h-[520px] lg:mx-0 lg:h-[560px]"
+      class="-ml-12 -mr-8 hidden md:block md:h-[520px] lg:mr-0 lg:h-[560px]"
       src="../assets/peep-16.svg"
       alt="Hbd"
     />
