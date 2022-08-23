@@ -95,7 +95,7 @@ watch(
 watch(
   () => [data.value.wish],
   () => {
-    errWish.value = errorCheck(data.value.wish, 20, errWish.value);
+    errWish.value = errorCheck(data.value.wish, 10, errWish.value);
   }
 );
 </script>
