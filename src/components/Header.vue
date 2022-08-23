@@ -1,12 +1,22 @@
 <script setup lang="ts">
 import { useScroll } from "../composables/useScroll";
-const { scrollTo, updateScroll, scrollPosition } = useScroll();
+const { scrollTo } = useScroll();
 </script>
 <template>
-  <div class="flex flex-col md:flex-row items-center justify-center pt-32">
-    <img class="hidden lg:block lg:h-[560px] -m-8 lg:m-0" src="../assets/peep-16.svg" alt="Hbd" />
-    <div class="lg:w-[600px] px-10 lg:px-0 flex flex-col gap-y-7">
-      <h1 class="text-6xl lg:text-8xl font-extrabold leading-[1.15] -mt-16 lg:mt-0">Happy Moniversary!</h1>
+  <div
+    class="mx-auto flex h-full flex-col items-center justify-center md:flex-row xl:w-[1240px]"
+  >
+    <img
+      class="-ml-12 -mr-8 hidden md:block md:h-[520px] lg:mx-0 lg:h-[560px]"
+      src="../assets/peep-16.svg"
+      alt="Hbd"
+    />
+    <div class="flex flex-col gap-y-7 lg:w-[600px]">
+      <h1
+        class="-mt-16 text-[13vw] font-extrabold leading-[1.15] md:text-[8vw] lg:mt-0 lg:text-8xl"
+      >
+        Happy Moniversary
+      </h1>
       <p class="font-semibold">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
         dignissimos nesciunt, magnam illum deserunt eaque expedita saepe
@@ -15,7 +25,7 @@ const { scrollTo, updateScroll, scrollPosition } = useScroll();
       </p>
       <button
         @click="scrollTo('wishes')"
-        class="bg-black text-white font-semibold max-w-fit py-3 px-6 rounded-full hover:underline underline-offset-4 hover:scale-110"
+        class="max-w-fit rounded-full bg-black py-3 px-6 font-semibold text-white underline-offset-4 hover:scale-110 hover:underline"
       >
         Get Started
       </button>

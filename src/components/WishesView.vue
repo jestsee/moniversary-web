@@ -22,7 +22,7 @@ const refreshWishes = () => {
   >
     <p>Loading...</p>
   </div>
-  <div v-else class="w-full xl:w-[1240px] mx-auto py-20 flex gap-x-6">
+  <div v-else class="w-full xl:w-[1240px] mx-auto py-10 flex gap-x-6">
     <div class="sticky top-24 self-start hidden lg:block">
       <AddWish :reload="refreshWishes"/>
     </div>

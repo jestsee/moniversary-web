@@ -6,7 +6,6 @@ import { MenuIcon } from "@heroicons/vue/solid";
 const { scrollTo, updateScroll, scrollPosition } = useScroll();
 const menuClicked = ref(false);
 const handleMenu = () => {
-  console.log(menuClicked.value);
   menuClicked.value = !menuClicked.value;
 };
 onMounted(() => {
@@ -16,7 +15,7 @@ onMounted(() => {
 <template>
   <div
     :class="[
-      'flex justify-center fixed w-full z-20',
+      'fixed z-20 flex w-full justify-center',
       {
         ' bg-black text-white transition-all duration-150':
           scrollPosition > 100,
@@ -25,45 +24,45 @@ onMounted(() => {
   >
     <div
       :class="[
-        'w-full flex flex-col justify-between xl:w-[1240px] xl:px-0 py-8 transition-all duration-500 md:flex-row',
+        'flex w-full flex-col justify-between py-8 transition-all duration-500 md:flex-row xl:w-[1240px] xl:px-0',
         { 'py-4 transition-all duration-700': scrollPosition > 100 },
       ]"
     >
-      <div class="flex justify-between items-center px-10 xl:px-0">
-        <div class="font-extrabold text-3xl cursor-pointer">Cie tua.</div>
+      <div class="flex items-center justify-between px-10 xl:px-0">
+        <div class="cursor-pointer text-3xl font-extrabold">Cie tua.</div>
         <button @click="handleMenu">
           <MenuIcon class="h-7 md:hidden" />
         </button>
       </div>
       <ul
         :class="[
-          'flex flex-col gap-x-[6.5rem] items-center gap-y-2 md:flex-row absolute md:relative md:top-0 w-full md:w-fit pb-6 md:pb-0 bg-white md:bg-transparent -z-20',
+          'absolute -z-20 flex w-full flex-col items-center gap-x-[6.5rem] gap-y-2 bg-white pb-8 md:relative md:top-0 md:z-0 md:w-fit md:flex-row md:bg-transparent md:pb-0',
           menuClicked
-            ? 'top-[4rem] pb-4 pt-2 transition-all md:duration-150 duration-700'
-            : '-top-[150px] transition-all md:duration-150 duration-700',
+            ? 'top-[4rem] pb-4 pt-2 transition-all duration-500 md:duration-150'
+            : '-top-[150px] transition-all duration-500 md:duration-150',
           { ' bg-black md:bg-transparent': scrollPosition > 100 },
         ]"
       >
         <li
           @click="scrollTo('header')"
-          class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
+          class="cursor-pointer text-lg font-semibold underline-offset-4 hover:underline"
         >
           Home
         </li>
         <li
           @click="scrollTo('wishes')"
-          class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
+          class="cursor-pointer text-lg font-semibold underline-offset-4 hover:underline"
         >
           Wishes
         </li>
         <li
-          class="font-semibold text-lg hover:underline underline-offset-4 cursor-pointer"
+          class="cursor-pointer text-lg font-semibold underline-offset-4 hover:underline"
         >
           Outro
         </li>
       </ul>
       <button
-        class="bg-black text-white text-lg font-semibold py-1.5 px-6 rounded-full border-white border-2 w-fit self-center mt-2 mr-10 hidden md:block xl:mr-0"
+        class="mt-2 mr-10 hidden w-fit self-center rounded-full border-2 border-white bg-black py-1.5 px-6 text-lg font-semibold text-white md:block xl:mr-0"
       >
         Bonus
       </button>
