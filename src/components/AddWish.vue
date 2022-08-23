@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { PlusSmIcon } from "@heroicons/vue/solid";
 import { useModal } from "../composables/useModal";
 import Modal from "./Modal.vue";
 import Input from "./Input.vue";
 import { ref, watch } from "vue";
 import { Wish } from "../composables/types/wish";
 import { useWish } from "../composables/@api/useWish";
+import { PlusSmIcon } from "@heroicons/vue/solid";
 
 const { isOpen, openModal, closeModal } = useModal();
 const { addWish, loadingWish } = useWish();
@@ -46,7 +46,6 @@ const errorCheck = (
   else if (err && field === "") return "jangan kosong dong weh";
   else {
     err = undefined;
-    // console.log(err);
   }
 };
 
@@ -102,25 +101,12 @@ watch(
 </script>
 
 <template>
-  <div class="flex flex-col gap-y-6">
-    <div
-      class="bg-white min-w-[250px] max-h-[250px] aspect-square rounded-3xl flex justify-center items-center hover:scale-105 group cursor-pointer shadow-[0_35px_60px_-15px_rgba(0,0,0,0.06)]"
-    >
-      <button
-        @click="openModal"
-        class="bg-black rounded-full h-fit group-hover:motion-safe:animate-bounce"
-      >
-        <PlusSmIcon class="text-white h-20" />
-      </button>
-    </div>
-    <h2 class="font-extrabold text-[2.5rem] leading-10 mt-4">
-      a little suggestion
-    </h2>
-    <p class="">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo nam possimus
-      sit animi obcaecati facilis, earum doloribus ipsum.
-    </p>
-  </div>
+  <button
+    @click="openModal"
+    class="h-fit rounded-full bg-black shadow-lg group-hover:motion-safe:animate-bounce lg:shadow-none"
+  >
+    <PlusSmIcon class="h-20 text-white" />
+  </button>
   <Modal
     title="Drop your wish"
     :is-open="isOpen"

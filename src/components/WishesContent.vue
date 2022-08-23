@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import WishItem from "./WishItem.vue";
-import AddWish from "./AddWish.vue";
-import Loading from "./Loading.vue";
 import { Wish } from "../composables/types/wish";
-import { watch } from "vue";
-import { useWish } from "../composables/@api/useWish";
 
 interface Props {
   items: Wish[];
