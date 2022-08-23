@@ -24,7 +24,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" class="relative z-50">
+    <Dialog as="div" @close="() => !submit ? closeModal() : undefined" class="relative z-50">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"

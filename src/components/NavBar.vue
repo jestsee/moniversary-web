@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useScroll } from "../composables/useScroll";
-import { MenuIcon } from "@heroicons/vue/solid";
+import { MenuIcon, XIcon } from "@heroicons/vue/solid";
 
 const { scrollTo, updateScroll, scrollPosition } = useScroll();
 const menuClicked = ref(false);
 const handleMenu = () => {
   menuClicked.value = !menuClicked.value;
+  let elem = document.querySelector(".icon");
+  if (!elem?.classList.contains("animate-[spin_250ms_ease-in-out_infinite]")) {
+    elem?.classList.add("animate-[spin_250ms_ease-in-out_infinite]");
+  }
+  setTimeout(() => {
+    elem?.classList.remove("animate-[spin_250ms_ease-in-out_infinite]");
+  }, 250);
 };
 onMounted(() => {
   window.addEventListener("scroll", updateScroll);
@@ -30,8 +37,9 @@ onMounted(() => {
     >
       <div class="flex items-center justify-between px-10 xl:px-0">
         <div class="cursor-pointer text-3xl font-extrabold">Cie tua.</div>
-        <button @click="handleMenu">
-          <MenuIcon class="h-7 md:hidden" />
+        <button class="icon" @click="handleMenu">
+          <MenuIcon v-if="!menuClicked" class="h-7 md:hidden" />
+          <XIcon v-else class="h-7 md:hidden" />
         </button>
       </div>
       <ul

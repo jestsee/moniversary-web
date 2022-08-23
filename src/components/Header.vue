@@ -18,14 +18,13 @@ const { scrollTo } = useScroll();
         Happy Moniversary
       </h1>
       <p class="font-semibold">
-        Disclaimer dulu kalo ini tampilannya lebih lengkap kalo buka di laptop. Pake handphone ga dimunculin gambarnya soalnya ga muat.
-        Bingung mau nulis apa, kata ade gw tulis aja cie tua cie tua cie tua cie tua cie tua cie tua cie tua. Akhirnya ya udah legal beli miras gosah minjem KTP meimei.
+        Disclaimer dulu kalo ini tampilannya lebih lengkap kalo buka di laptop. Akhirnya ya mon udah legal beli miras gosah minjem KTP meimei..
       </p>
       <button
         @click="scrollTo('wishes')"
         class="max-w-fit rounded-full bg-black py-3 px-6 font-semibold text-white underline-offset-4 hover:scale-110 hover:underline"
       >
-        Yuk cek 👇
+        yuk cek 👇
       </button>
     </div>
   </div>

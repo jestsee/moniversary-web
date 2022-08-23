@@ -30,7 +30,7 @@ const { isOpen, openModal, closeModal } = useModal();
       :open-modal="openModal"
       :close-modal="closeModal"
       ><p class="mt-4">{{ wish.wish }}</p>
-      <h3 class="mt-8 font-semibold break-words">- {{ wish.from }}</h3>
+      <h3 class="mt-8 mb-4 font-semibold break-words">- {{ wish.from }}</h3>
     </Modal>
   </div>
 </template>
@@ -45,7 +45,7 @@ const { isOpen, openModal, closeModal } = useModal();
 }
 .cut-2 {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
