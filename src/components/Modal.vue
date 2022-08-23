@@ -13,10 +13,14 @@ interface Props {
   openModal: CallableFunction;
   closeModal: CallableFunction;
   title?: string;
-  submit: CallableFunction;
+  submit?: CallableFunction;
   loading?: boolean;
 }
-withDefaults(defineProps<Props>(), { title: "test", loading: false });
+withDefaults(defineProps<Props>(), {
+  title: "test",
+  loading: false,
+  submit: undefined,
+});
 </script>
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
@@ -49,7 +53,7 @@ withDefaults(defineProps<Props>(), { title: "test", loading: false });
             <DialogPanel
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
-              <DialogTitle as="h3" class="text-2xl font-bold leading-6 mb-2">
+              <DialogTitle as="h3" class="mb-2 text-2xl font-bold leading-6">
                 {{ title }}
               </DialogTitle>
               <div class="mt-2">
@@ -57,9 +61,10 @@ withDefaults(defineProps<Props>(), { title: "test", loading: false });
               </div>
 
               <div class="mt-4 flex justify-end gap-x-3">
-                <button v-if="!loading"
+                <button
+                  v-if="!loading && submit"
                   type="button"
-                  class="rounded-xl border-2 border-black bg-white text-black px-5 py-2 text-sm font-medium"
+                  class="rounded-xl border-2 border-black bg-white px-5 py-2 text-sm font-medium text-black"
                   @click="() => closeModal()"
                 >
                   Cancel
@@ -68,15 +73,15 @@ withDefaults(defineProps<Props>(), { title: "test", loading: false });
                   :disabled="loading"
                   type="submit"
                   :class="[
-                    'flex items-center gap-x-1 rounded-xl border bg-black text-white px-5 py-2 text-sm font-medium',
+                    'flex items-center gap-x-1 rounded-xl border bg-black px-5 py-2 text-sm font-medium text-white',
                     { 'cursor-not-allowed bg-zinc-300': loading },
                   ]"
-                  @click="() => submit()"
+                  @click="() => submit ? submit() : closeModal()"
                 >
                   <span v-if="loading"
-                    ><Loading class="animate-spin h-4"
+                    ><Loading class="h-4 animate-spin"
                   /></span>
-                  Submit
+                  {{ submit ? 'Submit' : 'Back'}}
                 </button>
               </div>
             </DialogPanel>
